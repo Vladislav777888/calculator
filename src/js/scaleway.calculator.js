@@ -13,9 +13,12 @@ refs.linkSingle.addEventListener('click', handleLinkSingle);
 refs.linkMulti.addEventListener('click', handleLinkMulti);
 
 refs.linkMulti.classList.add('active');
+
+// Переменные для вычисления цен
 let boxStorageLength = 0;
 let boxTransferLength = 0;
 
+// Функция для отработки сторэдж-инпута
 function changeStorageValue(evt) {
   refs.inputStorageValue.textContent = evt.target.value;
 
@@ -47,31 +50,16 @@ function changeStorageValue(evt) {
 
   // калькулятор для широких экранов
   if (window.innerWidth >= 646) {
-    refs.scalewayBox.style.width = `${sum * 5}px`;
-
-    if (sum % 1 === 0) {
-      refs.scalewayValue.style.right = '-35px';
-      refs.scalewayValue.textContent = `${sum.toFixed(0)}$`;
-    } else {
-      refs.scalewayValue.style.right = '-60px';
-      refs.scalewayValue.textContent = `${sum.toFixed(2)}$`;
-    }
+    getStylesForBigDevices(sum);
   }
 
   // калькулятор для узких экранов
   if (window.innerWidth < 646) {
-    refs.scalewayBox.style.height = `${sum * 5}px`;
-
-    if (sum % 1 === 0) {
-      refs.scalewayValue.textContent = `${sum.toFixed(0)}$`;
-    } else {
-      refs.scalewayValue.textContent = `${sum.toFixed(2)}$`;
-    }
+    getStylesForLittleDevices(sum);
   }
-
-  // getBoxColor();
 }
 
+// Функция для отработки трансфер-инпута
 function changeTransferValue(evt) {
   refs.inputTransferValue.textContent = evt.target.value;
 
@@ -103,31 +91,16 @@ function changeTransferValue(evt) {
 
   // калькулятор для широких экранов
   if (window.innerWidth >= 646) {
-    refs.scalewayBox.style.width = `${sum * 5}px`;
-
-    if (sum % 1 === 0) {
-      refs.scalewayValue.style.right = '-35px';
-      refs.scalewayValue.textContent = `${sum.toFixed(0)}$`;
-    } else {
-      refs.scalewayValue.style.right = '-60px';
-      refs.scalewayValue.textContent = `${sum.toFixed(2)}$`;
-    }
+    getStylesForBigDevices(sum);
   }
 
   // калькулятор для узких экранов
   if (window.innerWidth < 646) {
-    refs.scalewayBox.style.height = `${sum * 5}px`;
-
-    if (sum % 1 === 0) {
-      refs.scalewayValue.textContent = `${sum.toFixed(0)}$`;
-    } else {
-      refs.scalewayValue.textContent = `${sum.toFixed(2)}$`;
-    }
+    getStylesForLittleDevices(sum);
   }
-
-  // getBoxColor();
 }
 
+// Функция для отработки клика на опцию Single
 function handleLinkSingle() {
   refs.linkSingle.classList.add('active');
   refs.linkMulti.classList.remove('active');
@@ -143,31 +116,18 @@ function handleLinkSingle() {
 
   // калькулятор для широких экранов
   if (window.innerWidth >= 646) {
-    refs.scalewayBox.style.width = `${sum * 5}px`;
-
-    if (sum % 1 === 0) {
-      refs.scalewayValue.style.right = '-35px';
-      refs.scalewayValue.textContent = `${sum.toFixed(0)}$`;
-    } else {
-      refs.scalewayValue.style.right = '-60px';
-      refs.scalewayValue.textContent = `${sum.toFixed(2)}$`;
-    }
+    getStylesForBigDevices(sum);
   }
 
   // калькулятор для узких экранов
   if (window.innerWidth < 646) {
-    refs.scalewayBox.style.height = `${sum * 5}px`;
-
-    if (sum % 1 === 0) {
-      refs.scalewayValue.textContent = `${sum.toFixed(0)}$`;
-    } else {
-      refs.scalewayValue.textContent = `${sum.toFixed(2)}$`;
-    }
+    getStylesForLittleDevices(sum);
   }
 
   getBoxColor();
 }
 
+// Функция для отработки клика на опцию Multi
 function handleLinkMulti() {
   refs.linkMulti.classList.add('active');
   refs.linkSingle.classList.remove('active');
@@ -183,27 +143,37 @@ function handleLinkMulti() {
 
   // калькулятор для широких экранов
   if (window.innerWidth >= 646) {
-    refs.scalewayBox.style.width = `${sum * 5}px`;
-
-    if (sum % 1 === 0) {
-      refs.scalewayValue.style.right = '-35px';
-      refs.scalewayValue.textContent = `${sum.toFixed(0)}$`;
-    } else {
-      refs.scalewayValue.style.right = '-60px';
-      refs.scalewayValue.textContent = `${sum.toFixed(2)}$`;
-    }
+    getStylesForBigDevices(sum);
   }
 
   // калькулятор для узких экранов
   if (window.innerWidth < 646) {
-    refs.scalewayBox.style.height = `${sum * 5}px`;
-
-    if (sum % 1 === 0) {
-      refs.scalewayValue.textContent = `${sum.toFixed(0)}$`;
-    } else {
-      refs.scalewayValue.textContent = `${sum.toFixed(2)}$`;
-    }
+    getStylesForLittleDevices(sum);
   }
 
   getBoxColor();
+}
+
+// Функция для задания стилей для широких экранов
+function getStylesForBigDevices(sum) {
+  refs.scalewayBox.style.width = `${sum * 5}px`;
+
+  if (sum % 1 === 0) {
+    refs.scalewayValue.style.right = '-35px';
+    refs.scalewayValue.textContent = `${sum.toFixed(0)}$`;
+  } else {
+    refs.scalewayValue.style.right = '-60px';
+    refs.scalewayValue.textContent = `${sum.toFixed(2)}$`;
+  }
+}
+
+// Функция для задания стилей для узких экранов
+function getStylesForLittleDevices(sum) {
+  refs.scalewayBox.style.height = `${sum * 5}px`;
+
+  if (sum % 1 === 0) {
+    refs.scalewayValue.textContent = `${sum.toFixed(0)}$`;
+  } else {
+    refs.scalewayValue.textContent = `${sum.toFixed(2)}$`;
+  }
 }

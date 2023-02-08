@@ -11,9 +11,12 @@ refs.linkSdd.addEventListener('click', handleLinkSdd);
 refs.linkHdd.addEventListener('click', handleLinkHdd);
 
 refs.linkHdd.classList.add('active');
+
+// Переменные для вычисления цен
 let boxStorageLength = 0;
 let boxTransferLength = 0;
 
+// Функция для отработки сторэдж-инпута
 function changeStorageValue(evt) {
   refs.inputStorageValue.textContent = evt.target.value;
 
@@ -27,42 +30,16 @@ function changeStorageValue(evt) {
 
   // калькулятор для широких экранов
   if (window.innerWidth >= 646) {
-    if (sum > 10) {
-      refs.bunnyValue.style.right = '-35px';
-      refs.bunnyValue.textContent = '10$';
-      refs.bunnyBox.style.width = `50px`;
-      return;
-    }
-
-    refs.bunnyBox.style.width = `${sum * 5}px`;
-
-    if (sum % 1 === 0) {
-      refs.bunnyValue.style.right = '-35px';
-      refs.bunnyValue.textContent = `${sum.toFixed(0)}$`;
-    } else {
-      refs.bunnyValue.style.right = '-60px';
-      refs.bunnyValue.textContent = `${sum.toFixed(2)}$`;
-    }
+    getStylesForBigDevices(sum);
   }
 
   // калькулятор для узких экранов
   if (window.innerWidth < 646) {
-    if (sum > 10) {
-      refs.bunnyValue.textContent = '10$';
-      refs.bunnyBox.style.height = `50px`;
-      return;
-    }
-
-    refs.bunnyBox.style.height = `${sum * 5}px`;
-
-    if (sum % 1 === 0) {
-      refs.bunnyValue.textContent = `${sum.toFixed(0)}$`;
-    } else {
-      refs.bunnyValue.textContent = `${sum.toFixed(2)}$`;
-    }
+    getStylesForLittleDevices(sum);
   }
 }
 
+// Функция для отработки трансфер-инпута
 function changeTransferValue(evt) {
   refs.inputTransferValue.textContent = evt.target.value;
 
@@ -71,42 +48,16 @@ function changeTransferValue(evt) {
 
   // калькулятор для широких экранов
   if (window.innerWidth >= 646) {
-    if (sum > 10) {
-      refs.bunnyValue.style.right = '-35px';
-      refs.bunnyValue.textContent = '10$';
-      refs.bunnyBox.style.width = `50px`;
-      return;
-    }
-
-    refs.bunnyBox.style.width = `${sum * 5}px`;
-
-    if (sum % 1 === 0) {
-      refs.bunnyValue.style.right = '-35px';
-      refs.bunnyValue.textContent = `${sum.toFixed(0)}$`;
-    } else {
-      refs.bunnyValue.style.right = '-60px';
-      refs.bunnyValue.textContent = `${sum.toFixed(2)}$`;
-    }
+    getStylesForBigDevices(sum);
   }
 
   // калькулятор для узких экранов
   if (window.innerWidth < 646) {
-    if (sum > 10) {
-      refs.bunnyValue.textContent = '10$';
-      refs.bunnyBox.style.height = `50px`;
-      return;
-    }
-
-    refs.bunnyBox.style.height = `${sum * 5}px`;
-
-    if (sum % 1 === 0) {
-      refs.bunnyValue.textContent = `${sum.toFixed(0)}$`;
-    } else {
-      refs.bunnyValue.textContent = `${sum.toFixed(2)}$`;
-    }
+    getStylesForLittleDevices(sum);
   }
 }
 
+// Функция для отработки клика на опцию SSD
 function handleLinkSdd() {
   refs.linkHdd.classList.remove('active');
   refs.linkSdd.classList.add('active');
@@ -116,50 +67,16 @@ function handleLinkSdd() {
 
   // калькулятор для широких экранов
   if (window.innerWidth >= 646) {
-    if (sum > 10) {
-      refs.bunnyValue.style.right = '-35px';
-      refs.bunnyValue.textContent = '10$';
-      refs.bunnyBox.style.width = `50px`;
-
-      getBoxColor();
-      return;
-    }
-
-    refs.bunnyBox.style.width = `${sum * 5}px`;
-
-    if (sum % 1 === 0) {
-      refs.bunnyValue.style.right = '-35px';
-      refs.bunnyValue.textContent = `${sum.toFixed(0)}$`;
-    } else {
-      refs.bunnyValue.style.right = '-60px';
-      refs.bunnyValue.textContent = `${sum.toFixed(2)}$`;
-    }
-
-    getBoxColor();
+    getStylesForBigDevices(sum);
   }
 
   // калькулятор для узких экранов
   if (window.innerWidth < 646) {
-    if (sum > 10) {
-      refs.bunnyValue.textContent = '10$';
-      refs.bunnyBox.style.height = `50px`;
-
-      getBoxColor();
-      return;
-    }
-
-    refs.bunnyBox.style.height = `${sum * 5}px`;
-
-    if (sum % 1 === 0) {
-      refs.bunnyValue.textContent = `${sum.toFixed(0)}$`;
-    } else {
-      refs.bunnyValue.textContent = `${sum.toFixed(2)}$`;
-    }
-
-    getBoxColor();
+    getStylesForLittleDevices(sum);
   }
 }
 
+// Функция для отработки клика на опцию HDD
 function handleLinkHdd() {
   refs.linkHdd.classList.add('active');
   refs.linkSdd.classList.remove('active');
@@ -169,46 +86,56 @@ function handleLinkHdd() {
 
   // калькулятор для широких экранов
   if (window.innerWidth >= 646) {
-    if (sum > 10) {
-      refs.bunnyValue.style.right = '-35px';
-      refs.bunnyValue.textContent = '10$';
-      refs.bunnyBox.style.width = `50px`;
-
-      getBoxColor();
-      return;
-    }
-
-    refs.bunnyBox.style.width = `${sum * 5}px`;
-
-    if (sum % 1 === 0) {
-      refs.bunnyValue.style.right = '-35px';
-      refs.bunnyValue.textContent = `${sum.toFixed(0)}$`;
-    } else {
-      refs.bunnyValue.style.right = '-60px';
-      refs.bunnyValue.textContent = `${sum.toFixed(2)}$`;
-    }
-
-    getBoxColor();
+    getStylesForBigDevices(sum);
   }
 
   // калькулятор для узких экранов
   if (window.innerWidth < 646) {
-    if (sum > 10) {
-      refs.bunnyValue.textContent = '10$';
-      refs.bunnyBox.style.height = `50px`;
+    getStylesForLittleDevices(sum);
+  }
+}
 
-      getBoxColor();
-      return;
-    }
-
-    refs.bunnyBox.style.height = `${sum * 5}px`;
-
-    if (sum % 1 === 0) {
-      refs.bunnyValue.textContent = `${sum.toFixed(0)}$`;
-    } else {
-      refs.bunnyValue.textContent = `${sum.toFixed(2)}$`;
-    }
+// Функция для задания стилей для широких экранов
+function getStylesForBigDevices(sum) {
+  if (sum > 10) {
+    refs.bunnyValue.style.right = '-35px';
+    refs.bunnyValue.textContent = '10$';
+    refs.bunnyBox.style.width = `50px`;
 
     getBoxColor();
+    return;
   }
+
+  refs.bunnyBox.style.width = `${sum * 5}px`;
+
+  if (sum % 1 === 0) {
+    refs.bunnyValue.style.right = '-35px';
+    refs.bunnyValue.textContent = `${sum.toFixed(0)}$`;
+  } else {
+    refs.bunnyValue.style.right = '-60px';
+    refs.bunnyValue.textContent = `${sum.toFixed(2)}$`;
+  }
+
+  getBoxColor();
+}
+
+// Функция для задания стилей для узких экранов
+function getStylesForLittleDevices(sum) {
+  if (sum > 10) {
+    refs.bunnyValue.textContent = '10$';
+    refs.bunnyBox.style.height = `50px`;
+
+    getBoxColor();
+    return;
+  }
+
+  refs.bunnyBox.style.height = `${sum * 5}px`;
+
+  if (sum % 1 === 0) {
+    refs.bunnyValue.textContent = `${sum.toFixed(0)}$`;
+  } else {
+    refs.bunnyValue.textContent = `${sum.toFixed(2)}$`;
+  }
+
+  getBoxColor();
 }

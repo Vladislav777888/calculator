@@ -1,5 +1,6 @@
 import { refs } from './refs';
 
+// Функция для задания цвета столбцу с минимальной ценой
 export function getBoxColor() {
   let backblazeSum = Number(
     parseFloat(refs.backblazeValue.textContent).toFixed(2)
