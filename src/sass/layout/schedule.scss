@@ -1,0 +1,252 @@
+.calculator {
+  height: 494px;
+  width: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+
+  @media screen and (min-width: 646px) {
+    margin-top: 40px;
+    flex-direction: row;
+    align-items: center;
+    height: 190px;
+    width: 604px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.providers {
+  width: 100%;
+  background-color: aqua;
+  padding: 20px 0 10px 0;
+
+  @media screen and (max-width: 645px) {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  @media screen and (min-width: 646px) {
+    width: 230px;
+    height: auto;
+    padding: 10px 20px 10px 10px;
+  }
+}
+
+.providers-list {
+  @media screen and (max-width: 645px) {
+    display: flex;
+
+    &__item {
+      width: 70px;
+      // & + & {
+      //   margin-left: 18px;
+      // }
+    }
+  }
+
+  @media screen and (min-width: 646px) {
+    &__item {
+      & + & {
+        margin-left: 0;
+        margin-top: 15px;
+      }
+    }
+  }
+
+  &__title {
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+
+    @media screen and (max-width: 645px) {
+      font-size: 12px;
+      flex-direction: column-reverse;
+      text-align: center;
+
+      & svg {
+        margin-bottom: 10px;
+      }
+
+      & img {
+        margin-bottom: 10px;
+      }
+    }
+
+    @media screen and (min-width: 646px) {
+      font-size: 18px;
+      justify-content: space-between;
+    }
+  }
+
+  &__text {
+    position: relative;
+    font-size: 8px;
+    padding-left: 10px;
+    cursor: pointer;
+
+    &.active {
+      &::before {
+        background-color: red;
+      }
+    }
+
+    &::before {
+      position: absolute;
+      content: '';
+      top: 50%;
+      left: -10px;
+      margin-left: 10px;
+      width: 7px;
+      height: 7px;
+      border: 1px solid black;
+      border-radius: 50%;
+      transform: translateY(-50%);
+    }
+
+    & + & {
+      margin-left: 0;
+    }
+
+    @media screen and (min-width: 646px) {
+      font-size: 12px;
+
+      & + & {
+        margin-left: 10px;
+      }
+    }
+  }
+}
+
+.calculator-values {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: gray;
+  background-image: url('https://wasabi.com/wp-content/themes/wasabi/dist/img/graph-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 0 16px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 280px;
+    height: 8px;
+    bottom: -8px;
+    left: 0;
+    background-color: black;
+    border-radius: 3px;
+  }
+
+  @media screen and (max-width: 645px) {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  @media screen and (min-width: 646px) {
+    padding: 10px 0;
+
+    &::before {
+      width: 8px;
+      height: 220px;
+      top: -15px;
+      left: -8px;
+    }
+  }
+}
+
+.schedule-values-list {
+  @media screen and (max-width: 645px) {
+    display: flex;
+    transform: rotateX(180deg);
+
+    &__item {
+      & + & {
+        margin-left: 36px;
+      }
+    }
+
+    &__box {
+      > span {
+        position: absolute;
+        bottom: -25px;
+        transform: rotateX(-180deg) translateX(50%);
+        right: 50%;
+      }
+
+      &--green {
+        position: relative;
+        width: 35px;
+        height: 35px;
+        background-color: gray;
+      }
+
+      &--red {
+        position: relative;
+        width: 35px;
+        height: 0;
+        background-color: gray;
+      }
+
+      &--orange {
+        position: relative;
+        width: 35px;
+        height: 0;
+        background-color: gray;
+      }
+
+      &--yellow {
+        position: relative;
+        width: 35px;
+        height: 25px;
+        background-color: gray;
+      }
+    }
+  }
+
+  @media screen and (min-width: 646px) {
+    &__item {
+      & + & {
+        margin-top: 23px;
+      }
+    }
+
+    &__box {
+      > span {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: -25px;
+      }
+
+      &--green {
+        position: relative;
+        width: 35px;
+        height: 25px;
+        background-color: gray;
+      }
+
+      &--red {
+        position: relative;
+        width: 0;
+        height: 25px;
+        background-color: gray;
+      }
+
+      &--orange {
+        position: relative;
+        width: 0;
+        height: 25px;
+        background-color: gray;
+      }
+
+      &--yellow {
+        position: relative;
+        width: 25px;
+        height: 25px;
+        background-color: gray;
+      }
+    }
+  }
+}

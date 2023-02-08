@@ -1,0 +1,185 @@
+<section class="section">
+  <div class="container">
+    <h1 class="visually-hidden">Calculator</h1>
+    <form class="form">
+      <div class="form-group">
+        <label class="form-group__label" for="storage"
+          >Storage:
+          <div>
+            <span class="form-group__label-span js-span-storage">0</span>GB
+          </div></label
+        >
+        <div class="form-group__input-wrapper">
+          <input
+            class="form-group__input"
+            type="range"
+            name="storage_rate"
+            value="0"
+            min="0"
+            max="1000"
+            step="1"
+            id="storage"
+          />
+          <div class="form-group__input-values-wrapper">
+            <span class="form-group__input-value-start">0</span>
+            <span class="form-group__input-value-end">1000</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-group__label" for="transfer"
+          >Transfer:
+          <div>
+            <span class="form-group__label-span js-span-transfer">0</span>GB
+          </div></label
+        >
+        <div class="form-group__input-wrapper">
+          <input
+            class="form-group__input"
+            type="range"
+            name="transfer_rate"
+            value="0"
+            min="0"
+            max="1000"
+            step="1"
+            id="transfer"
+          />
+          <div class="form-group__input-values-wrapper">
+            <span class="form-group__input-value-start">0</span>
+            <span class="form-group__input-value-end">1000</span>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <div class="calculator">
+      <div class="providers">
+        <ul class="providers-list">
+          <li class="providers-list__item">
+            <h3 class="providers-list__title">
+              backblaze
+              <svg
+                role="img"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 64 64"
+                width="24"
+                height="24"
+                fill="#b42432"
+              >
+                <path
+                  d="M24.664 0c3.5 3.1 6.6 6.998 7.776 11.663.4 1.944.4 3.5-.4 5.443-.4 1.555-1.166 3.1-1.944 5.054-.778 2.333-.778 5.054.4 7.776C31.663 32.27 32.05 35 32.05 38.1c-.4 3.1-2.333 5.054-5.443 5.054-1.944 0-3.888-.4-5.832-1.166-3.888-1.944-5.832-4.665-6.22-8.942-.4-5.832 1.944-10.497 6.22-13.996 1.555-1.555 3.1-3.1 4.277-5.054 2.333-4.277 1.944-8.553.4-12.83-.4-.4-.4-.778-.778-1.166zm15.94 13.22l-1.166 4.277a14.68 14.68 0 0 0 0 5.832c.4 2.333 1.166 4.277 3.1 6.22 1.555 1.166 3.1 2.72 4.665 3.888 4.665 4.277 5.054 9.33 3.5 14.774-1.166 3.888-4.277 5.443-8.164 6.6-3.888.778-7.387-1.166-8.942-4.665-1.166-2.333-1.166-4.665.4-6.6 1.944-3.1 2.333-6.6 1.166-10.108l-1.166-4.665c-1.166-2.72-.778-5.443.4-7.776 1.555-3.1 3.888-5.443 6.22-7.776zm6.6 43.93c-.4.4-.4.778-.778 1.166-2.72 3.1-5.832 4.665-10.108 5.443-5.054.778-10.108-.4-14.385-2.72-3.888-1.944-6.6-5.443-8.164-9.72-1.166-2.72-1.555-5.832-1.166-8.942 0-.4 0-.778.4-.778 0 0 .4 0 .4.4 2.72 3.1 6.22 4.665 10.108 5.054 1.166-.4 2.333-.4 3.5-.4.778 0 1.166.4 1.166 1.166.4.778.4 1.555.778 2.333 1.555 4.277 4.665 6.6 9.33 7.776 2.333.4 4.665.4 6.998-.778h1.944c0-.4 0 0 0 0z"
+                />
+              </svg>
+            </h3>
+          </li>
+          <li class="providers-list__item">
+            <h3 class="providers-list__title">
+              <div>
+                bunny
+                <div>
+                  <a class="providers-list__text js-text-hdd">HDD</a>
+                  <a class="providers-list__text js-text-sdd">SDD</a>
+                </div>
+              </div>
+              <img
+                src="./images/bunny/icons8-год-кролика-32.png"
+                width="24"
+                height="24"
+              />
+            </h3>
+          </li>
+          <li class="providers-list__item">
+            <h3 class="providers-list__title">
+              <div>
+                scaleway
+                <div>
+                  <a class="providers-list__text js-text-multi">Multi</a>
+                  <a class="providers-list__text js-text-single">Single</a>
+                </div>
+              </div>
+              <svg
+                role="img"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+              >
+                <title>Scaleway icon</title>
+                <path
+                  d="M16.61 11.11v5.72a1.77 1.77 0 0 1-1.54 1.69h-4a1.43 1.43 0 0 1-1.31-1.22 1.09 1.09 0 0 1 0-.18 1.37 1.37 0 0 1 1.37-1.36h1.74a1 1 0 0 0 1-1v-3.62a1.4 1.4 0 0 1 1.18-1.39h.17a1.37 1.37 0 0 1 1.39 1.36zm-6.46 1.74V9.26a1 1 0 0 1 1-1H13a1.37 1.37 0 0 0 1.37-1.37 1 1 0 0 0 0-.17 1.45 1.45 0 0 0-1.41-1.2H9a1.81 1.81 0 0 0-1.58 1.66v5.7a1.37 1.37 0 0 0 1.37 1.37H9a1.4 1.4 0 0 0 1.15-1.4zm12-4.29V20A4.53 4.53 0 0 1 18 24h-7.58a8.57 8.57 0 0 1-8.56-8.57V4.54A4.54 4.54 0 0 1 6.4 0h7.18a8.56 8.56 0 0 1 8.56 8.56zm-2.74 0a5.83 5.83 0 0 0-5.82-5.82H6.4a1.79 1.79 0 0 0-1.8 1.8v10.89a5.83 5.83 0 0 0 5.82 5.8h7.44a1.79 1.79 0 0 0 1.54-1.48z"
+                />
+              </svg>
+            </h3>
+          </li>
+          <li class="providers-list__item">
+            <h3 class="providers-list__title">
+              vultr
+              <svg
+                role="img"
+                viewBox="0 0 256 221"
+                width="24"
+                height="24"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                preserveAspectRatio="xMidYMid"
+              >
+                <title>Vultr</title>
+                <g>
+                  <path
+                    d="M89.1733333,6.0952381 C86.874139,2.33352357 82.7933905,0.0280159095 78.3847619,0 L12.8,0 C5.7307552,0 0,5.7307552 0,12.8 C0,15.2130355 0.675664961,17.5778629 1.95047619,19.6266667 L18.8342857,44.4342857 L103.253333,26.1485714 L89.1733333,6.0952381 Z"
+                    fill="#C9F4FF"
+                  ></path>
+                  <path
+                    d="M103.619048,26.6361905 C101.291688,22.8735278 97.1936976,20.571286 92.7695238,20.5409524 L27.4285714,20.5409524 C22.6393949,20.320049 18.131746,22.8066999 15.7642166,26.9756104 C13.3966872,31.1445209 13.5702468,36.2896359 16.2133333,40.2895238 L35.047619,70.1561905 L122.270476,56.5028571 L103.619048,26.6361905 Z"
+                    fill="#51B9FF"
+                  ></path>
+                  <path
+                    d="M34.2552381,68.9371429 C32.1124451,65.5039472 31.6846074,61.270606 33.0971429,57.4780952 C35.0564582,52.4771108 39.9172706,49.2203665 45.287619,49.3104762 L110.628571,49.3104762 C115.055826,49.3291676 119.159076,51.6343641 121.478095,55.4057143 L180.175238,148.48 C181.450049,150.528804 182.125714,152.893631 182.125714,155.306667 C182.116105,157.718347 181.441174,160.080604 180.175238,162.133333 L147.382857,214.125714 C145.021988,217.834743 140.929991,220.080732 136.533333,220.080732 C132.136676,220.080732 128.044679,217.834743 125.68381,214.125714 L34.2552381,68.9371429 Z"
+                    fill="#007BFC"
+                  ></path>
+                  <path
+                    d="M199.558095,98.6819048 C201.918964,102.390933 206.010962,104.636923 210.407619,104.636923 C214.804276,104.636923 218.896274,102.390933 221.257143,98.6819048 L232.533333,80.8228571 L254.049524,46.6895238 C255.324335,44.64072 256,42.2758927 256,39.8628571 C255.990391,37.4511772 255.31546,35.0889199 254.049524,33.0361905 L236.982857,6.0952381 C234.655497,2.33257539 230.557507,0.0303336047 226.133333,0 L160.548571,0 C157.1538,0 153.89807,1.34856756 151.497605,3.7490332 C149.097139,6.14949884 147.748,9.40522893 147.748,12.8 C147.725099,15.22497 148.425426,17.6018355 149.76,19.6266667 L199.558095,98.6819048 Z"
+                    fill="#007BFC"
+                  ></path>
+                </g>
+              </svg>
+            </h3>
+          </li>
+        </ul>
+      </div>
+      <div class="calculator-values">
+        <ul class="schedule-values-list">
+          <li class="schedule-values-list__item">
+            <div
+              class="schedule-values-list__box schedule-values-list__box--green js-box-backblaze"
+            >
+              <span class="js-backblaze-value">7$</span>
+            </div>
+          </li>
+          <li class="schedule-values-list__item">
+            <div
+              class="schedule-values-list__box schedule-values-list__box--red js-box-bunny"
+            >
+              <span class="js-bunny-value">0$</span>
+            </div>
+          </li>
+          <li class="schedule-values-list__item">
+            <div
+              class="schedule-values-list__box schedule-values-list__box--orange js-box-scaleway"
+            >
+              <span class="js-scaleway-value">0$</span>
+            </div>
+          </li>
+          <li class="schedule-values-list__item">
+            <div
+              class="schedule-values-list__box schedule-values-list__box--yellow js-box-vultr"
+            >
+              <span class="js-vultr-value">5$</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,14 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  background-color: var(--main-background-color);
+  color: var(--main-text-color);
+  position: relative;
+}
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  height: 100%;
+}
